@@ -43,7 +43,7 @@ const Scanner = () => {
         formData.append("image", blob, "capture.png");
       }
 
-      const resp = await fetch("http://127.0.0.1:5000/predict", {
+      const resp = await fetch("https://wasteclasification-production.up.railway.app/predict", {
         method: "POST",
         body: formData,
       });
@@ -134,9 +134,8 @@ const Scanner = () => {
         {/* Header */}
         <header className="text-center mb-12 animate-fade-in">
           <div className="inline-flex items-center gap-3 mb-4">
-            <div className="p-3 rounded-2xl bg-gradient-to-br from-primary to-accent animate-glow-pulse">
-              <Scan className="w-8 h-8 text-primary-foreground" />
-            </div>
+            <img src="/seta.png" alt="Logo" className="w-12 h-12 object-contain" />
+            <h3>SETA</h3>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-3">
             <span className="text-gradient">Welcome</span>
