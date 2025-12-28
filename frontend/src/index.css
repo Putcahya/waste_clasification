@@ -1,0 +1,130 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* optional: app defaults */
+html, body, #root { height: 100%; }
+body { @apply bg-background text-foreground; }
+
+/* your custom styles */
+
+:root {
+  --background: 220 20% 6%;
+  --foreground: 210 40% 98%;
+  --popover-foreground: 210 40% 98%;
+
+  --primary: 175 80% 50%;
+  --primary-foreground: 220 20% 6%;
+
+  --secondary: 220 18% 14%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 220 15% 18%;
+  --muted-foreground: 215 20% 55%;
+
+  --accent: 175 70% 40%;
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 220 15% 20%;
+  --input: 220 15% 20%;
+  --ring: 175 80% 50%;
+
+  --radius: 1rem;
+
+  /* Custom tokens */
+  --gradient-primary: linear-gradient(135deg, hsl(175 80% 50%) 0%, hsl(190 90% 45%) 100%);
+  --gradient-glow: radial-gradient(circle at center, hsl(175 80% 50% / 0.15) 0%, transparent 70%);
+  --gradient-card: linear-gradient(145deg, hsl(220 18% 12%) 0%, hsl(220 18% 8%) 100%);
+  
+  --shadow-glow: 0 0 40px hsl(175 80% 50% / 0.3);
+  --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.4);
+  
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --sidebar-background: 220 18% 8%;
+  --sidebar-foreground: 240 4.8% 95.9%;
+  --sidebar-primary: 175 80% 50%;
+  --sidebar-primary-foreground: 220 20% 6%;
+  --sidebar-accent: 220 15% 15%;
+  --sidebar-accent-foreground: 240 4.8% 95.9%;
+  --sidebar-border: 220 15% 20%;
+  --sidebar-ring: 175 80% 50%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .glass {
+    @apply backdrop-blur-xl bg-card/60 border border-border/50;
+  }
+
+  .glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes scan-line {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    top: 100%;
+    opacity: 1;
+  }
+}
+
+.scan-animation::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  box-shadow: var(--shadow-glow);
+  animation: scan-line 2s ease-in-out infinite;
+}
