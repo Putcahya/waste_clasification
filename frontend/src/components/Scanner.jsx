@@ -134,13 +134,12 @@ const Scanner = () => {
         {/* Header */}
         <header className="text-center mb-12 animate-fade-in">
           <div className="inline-flex items-center gap-3 mb-4">
-            <img src="/seta.png" alt="Logo" className="w-12 h-12 object-contain" />
-            <h3>SETA</h3>
+            <img src="/seta.png" alt="Logo" className="w-20 h-20 object-contain rounded md:rounded-lg" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-3">
             <span className="text-gradient">Welcome</span>
           </h1>
-          <p className="text-muted-foreground text-lg max-w-md mx-auto">
+          <p className="text-muted-foreground text-lg max-w-md mx-auto text-xl">
             Scan your trash, discover the magic! 
           </p>
         </header>
